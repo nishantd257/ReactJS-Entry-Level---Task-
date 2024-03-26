@@ -18,19 +18,17 @@ const HomePage = () => {
   }, [isLoggedIn, navigate]);
 
   const handleAddProduct = (product) => {
-    // Check for duplicates
     const isDuplicate = products.some((p) => p.productName === product.productName);
     if (isDuplicate) {
       alert('Product with this name already exists.');
       return;
     }
 
-    // Add product to the list
+
     setProducts([...products, product]);
   };
 
   const handleSearch = (query) => {
-    // Filter products based on search query
     const filteredProducts = products.filter((product) =>
       product.productName.toLowerCase().includes(query.toLowerCase())
     );
@@ -39,9 +37,8 @@ const HomePage = () => {
   };
 
   const handleLogout = () => {
-    // Clear authentication status
+
     localStorage.removeItem('isLoggedIn');
-    // Navigate to login page
     navigate('/login');
   };
 
